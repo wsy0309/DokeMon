@@ -6,10 +6,18 @@ LOCAL_MODULE    := simpleLED
 LOCAL_SRC_FILES := simpleLED.cpp
 LOCAL_LDLIBS += -llog
 
-
 LOCAL_LDLIBS += $(LIB_PATH) -lsimpleLED
 LOCAL_SHARE_LIBRARIES := libsimpleLED
 
-
 include $(BUILD_SHARED_LIBRARY)
 
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := textLCD
+LOCAL_SRC_FILES := textLCD.c
+LOCAL_LDLIBS := -llog
+
+LOCAL_LDLIBS += $(LIB_PATH) -ltextLCD
+LOCAL_SHARE_LIBRARIES := libtextLCD
+
+include $(BUILD_SHARED_LIBRARY)

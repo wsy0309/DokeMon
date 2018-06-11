@@ -18,6 +18,7 @@ import java.util.TimerTask;
 public class PlayActivity extends Activity {
 
     private example.dokemonster.SimpleLED simpleLED;
+    private TextLCD textLCD;
 
     private int input_flag = 0;
     protected boolean enabled = true;
@@ -206,6 +207,9 @@ public class PlayActivity extends Activity {
 
                         simpleLED = new SimpleLED();
                         simpleLED.UpdateValue(stage_cnt + 1);
+
+                        textLCD = new TextLCD();
+                        textLCD.UpdateValue(stage_cnt + 1);
 
                         //일정 시간마다 랜덤수 발생 & board 배경이미지로 초기화
                         //랜덤수는 정답배열에 따로 저장해둠
