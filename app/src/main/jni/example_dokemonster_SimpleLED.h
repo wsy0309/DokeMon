@@ -35,14 +35,6 @@ JNIEXPORT jboolean JNICALL Java_example_dokemonster_SimpleLED_TurnOn
 JNIEXPORT jboolean JNICALL Java_example_dokemonster_SimpleLED_TurnOffAll
   (JNIEnv *, jobject);
 
-/*
- * Class:     example_dokemonster_SimpleLED
- * Method:    Close
- * Signature: ()Z
- */
-JNIEXPORT jboolean JNICALL Java_example_dokemonster_SimpleLED_Close
-  (JNIEnv *, jobject);
-
 #ifdef __cplusplus
 }
 #endif

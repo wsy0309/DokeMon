@@ -12,7 +12,6 @@ public class SimpleLED{
     public native boolean Open();
     public native boolean TurnOn(int stage);
     public native boolean TurnOffAll();
-    public native boolean Close();
 
     SimpleLED(){
         //cnt = count;
@@ -27,9 +26,9 @@ public class SimpleLED{
 
     public boolean UpdateValue(int count){
         if(count == 1 || count == 4 || count == 7)
-            return TurnOn(0xe0);
+            return TurnOn(0x07);
         else if(count == 2 || count == 5 || count == 8)
-            return TurnOn(0xfc);
+            return TurnOn(0x3f);
         else
             return TurnOn(0xff);
     }
