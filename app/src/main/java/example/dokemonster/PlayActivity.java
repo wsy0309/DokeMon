@@ -20,7 +20,9 @@ public class PlayActivity extends Activity {
     private example.dokemonster.SimpleLED simpleLED;
     private TextLCD textLCD;
     private ImageOLED imageOLED;
+    private Segment segment;
 
+    private int score = 0;
     private int input_flag = 0;
     protected boolean enabled = true;
     private int stage_cnt = 0;
@@ -213,8 +215,12 @@ public class PlayActivity extends Activity {
                         textLCD.UpdateValue(stage_cnt + 1);
 
                         // 안되지롱 꺼지지롱 고쳐야 하지롱
-//                        imageOLED = new ImageOLED(PlayActivity.this);
-//                        imageOLED.UpdateValue(stage_cnt + 1);
+//                        segment = new Segment();
+//                        segment.UpdateValue(score);
+
+                        // 안되지롱 꺼지지롱 고쳐야 하지롱
+                        imageOLED = new ImageOLED(PlayActivity.this);
+                        imageOLED.UpdateValue(stage_cnt + 1);
 
                         //일정 시간마다 랜덤수 발생 & board 배경이미지로 초기화
                         //랜덤수는 정답배열에 따로 저장해둠
@@ -262,6 +268,7 @@ public class PlayActivity extends Activity {
         effectSound(R.raw.lose);
         enable(false);
         input_flag = 0;
+        score -= 50;
         final TimerTask timerTask2 = new TimerTask() {
             @Override
             public void run() {
@@ -295,6 +302,7 @@ public class PlayActivity extends Activity {
     }
 
     public void correct() {
+        score += 100;
         input_bg.setImageResource(R.drawable.input_correct);
         stage_cnt++;
 

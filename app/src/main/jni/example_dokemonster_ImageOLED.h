@@ -26,7 +26,8 @@ JNIEXPORT jboolean JNICALL Java_example_dokemonster_ImageOLED_open
 JNIEXPORT void JNICALL Java_example_dokemonster_ImageOLED_Control
   (JNIEnv *, jobject, jintArray);
 
-
+JNIEXPORT jboolean JNICALL Java_example_dokemonster_ImageOLED_close
+        (JNIEnv *, jobject);
 #ifdef __cplusplus
 }
 #endif

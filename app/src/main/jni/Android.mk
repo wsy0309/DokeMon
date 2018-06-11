@@ -29,4 +29,17 @@ LOCAL_LDLIBS := -llog
 LOCAL_LDLIBS += $(LIB_PATH) -limageOLED
 LOCAL_SHARE_LIBRARIES := libimageOLED
 
+
+include $(BUILD_SHARED_LIBRARY)
+
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := segment
+LOCAL_SRC_FILES := segment.cpp
+LOCAL_LDLIBS := -llog
+LOCAL_LDLIBS += $(LIB_PATH) -lsegment
+LOCAL_SHARE_LIBRARIES := libsegment
+
+
 include $(BUILD_SHARED_LIBRARY)

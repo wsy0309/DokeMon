@@ -64,5 +64,12 @@ JNIEXPORT void JNICALL Java_example_dokemonster_ImageOLED_Control
     data = (int*) (*env).GetIntArrayElements(image, 0);
     OLEDImage(data);
     (*env).ReleaseIntArrayElements(image, data, 0);
+}
+
+JNIEXPORT jboolean JNICALL Java_example_dokemonster_ImageOLED_close
+        (JNIEnv *env, jobject obj) {
+    if (fd < 0) return -1;
     close(fd);
+    fd = -1;
+    return 1;
 }
