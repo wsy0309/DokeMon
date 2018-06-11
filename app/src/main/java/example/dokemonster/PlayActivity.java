@@ -19,6 +19,7 @@ public class PlayActivity extends Activity {
 
     private example.dokemonster.SimpleLED simpleLED;
     private TextLCD textLCD;
+    private ImageOLED imageOLED;
 
     private int input_flag = 0;
     protected boolean enabled = true;
@@ -210,6 +211,10 @@ public class PlayActivity extends Activity {
 
                         textLCD = new TextLCD();
                         textLCD.UpdateValue(stage_cnt + 1);
+
+                        // 안되지롱 꺼지지롱 고쳐야 하지롱
+//                        imageOLED = new ImageOLED(PlayActivity.this);
+//                        imageOLED.UpdateValue(stage_cnt + 1);
 
                         //일정 시간마다 랜덤수 발생 & board 배경이미지로 초기화
                         //랜덤수는 정답배열에 따로 저장해둠

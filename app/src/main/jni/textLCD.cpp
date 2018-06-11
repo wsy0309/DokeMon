@@ -94,9 +94,6 @@ JNIEXPORT jint JNICALL Java_example_dokemonster_TextLCD_control
 
     init();
 
-//    buf0 = (char*)(*env)->GetStringUTFChars(env, str, &iscopy);
-//    buf1 = (char*)(*env)->GetStringUTFChars(env, str2, &iscopy);
-
     buf0 = (char*)(*env).GetStringUTFChars(str, &iscopy);
     buf1 = (char*)(*env).GetStringUTFChars(str2, &iscopy);
 
