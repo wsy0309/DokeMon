@@ -1,13 +1,10 @@
-//
-// Created by user on 2018-06-11.
-//
-
 #include "example_dokemonster_SimpleLED.h"
 
 static int fd = -1;
 
 
-JNIEXPORT jboolean JNICALL Java_SimpleLED_Open
+
+JNIEXPORT jboolean JNICALL Java_example_dokemonster_SimpleLED_Open
         (JNIEnv *env, jobject obj) {
     fd = open("/dev/fpga_led", O_RDWR);
     if (fd < 0)
@@ -16,7 +13,7 @@ JNIEXPORT jboolean JNICALL Java_SimpleLED_Open
         return 1;
 }
 
-JNIEXPORT jboolean JNICALL Java_SimpleLED_TurnOn
+JNIEXPORT jboolean JNICALL Java_example_dokemonster_SimpleLED_TurnOn
         (JNIEnv *env, jobject obj, jint data) {
     if (fd < 0)
         fd = open("/dev/fpga_led", O_RDWR);
@@ -27,7 +24,7 @@ JNIEXPORT jboolean JNICALL Java_SimpleLED_TurnOn
     return 1;
 }
 
-JNIEXPORT jboolean JNICALL Java_SimpleLED_TurnOffAll
+JNIEXPORT jboolean JNICALL Java_example_dokemonster_SimpleLED_TurnOffAll
         (JNIEnv *env, jobject obj){
     int data = 0x00;
     if (fd < 0)
@@ -38,7 +35,7 @@ JNIEXPORT jboolean JNICALL Java_SimpleLED_TurnOffAll
     return 0;
 }
 
-JNIEXPORT jboolean JNICALL Java_SimpleLED_Close
+JNIEXPORT jboolean JNICALL Java_example_dokemonster_SimpleLED_Close
         (JNIEnv *env, jobject obj) {
     if (fd < 0) return -errno;
     close(fd);

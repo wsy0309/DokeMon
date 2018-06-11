@@ -1,9 +1,10 @@
 package example.dokemonster;
 
-class SimpleLED{
+import android.util.Log;
+
+public class SimpleLED{
 
     private int cnt = 0;
-
     static{
         System.loadLibrary("simpleLED");
     }
@@ -13,11 +14,11 @@ class SimpleLED{
     public native boolean TurnOffAll();
     public native boolean Close();
 
-    SimpleLED(int count){
-        cnt = count;
+    SimpleLED(){
+        //cnt = count;
         boolean ret = Open();
-//              if (!ret)
-//                      Log.d("LED", "Open fail");
+        if (!ret)
+            Log.d("LED", "Open fail");
     }
 
     public int UpdateValue() {

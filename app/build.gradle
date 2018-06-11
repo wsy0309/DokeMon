@@ -1,24 +1,29 @@
 apply plugin: 'com.android.application'
 
-// Project Structure에서 설정한 NDK 경로를 읽어들여 Return합니다.
-def getNdkBuildPath() {
-    Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-    def command = properties.getProperty('ndk.dir')
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        command += "\\ndk-build.cmd"
-    } else {
-        command += "/ndk-build"
-    }
-
-    return command
-}
-
-
+//// Project Structure에서 설정한 NDK 경로를 읽어들여 Return합니다.
+//def getNdkBuildPath() {
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//
+//    def command = properties.getProperty('ndk.dir')
+//    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+//        command += "\\ndk-build.cmd"
+//    } else {
+//        command += "/ndk-build"
+//    }
+//
+//    return command
+//}
 
 android {
+
     compileSdkVersion 26
+
+/*    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+       }
+    }*/
     defaultConfig {
         ndk {
             moduleName "simpleLED"
@@ -34,9 +39,8 @@ android {
                 cppFlags ""
             }
         }
+
     }
-
-
 
     buildTypes {
         release {

@@ -17,10 +17,7 @@ import java.util.TimerTask;
 
 public class PlayActivity extends Activity {
 
-    static{
-        System.loadLibrary("simpleLED");
-    }
-    private SimpleLED simpleLED;
+    private example.dokemonster.SimpleLED simpleLED;
 
     private int input_flag = 0;
     protected boolean enabled = true;
@@ -207,7 +204,8 @@ public class PlayActivity extends Activity {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
 
-                        simpleLED = new SimpleLED(stage_cnt + 1);
+                        simpleLED = new SimpleLED();
+                        simpleLED.UpdateValue(stage_cnt + 1);
 
                         //일정 시간마다 랜덤수 발생 & board 배경이미지로 초기화
                         //랜덤수는 정답배열에 따로 저장해둠
