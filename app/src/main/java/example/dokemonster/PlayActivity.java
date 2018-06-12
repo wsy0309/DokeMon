@@ -313,6 +313,9 @@ public class PlayActivity extends Activity {
             effectSound(R.raw.stage_up);
             stage.setImageResource(R.drawable.stage_3);
         } else if (stage_cnt == 9) {
+            imageOLED = new ImageOLED(PlayActivity.this);
+            imageOLED.UpdateValue(stage_cnt);
+
             // end activity로 전환
             Intent intent = new Intent(PlayActivity.this, EndActivity.class);
             startActivity(intent);

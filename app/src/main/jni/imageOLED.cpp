@@ -30,8 +30,8 @@ int OLEDImage(int *data){
     unsigned short buf[128*128];
     unsigned short r = 0, g = 0, b = 0;
     int temp;
-    if (fd < 0) fd = open("/dev/fpga_oled", O_WRONLY | O_NDELAY);
-    if (fd < 0) return -errno;
+//    if (fd < 0) fd = open("/dev/fpga_oled", O_WRONLY | O_NDELAY);
+//    if (fd < 0) return -errno;
     for (int i = 0; i < 128*128; i++)
         buf[i] = 0xffff;
     if (fd >= 0){
@@ -43,6 +43,7 @@ int OLEDImage(int *data){
             buf[i] = ((r&0xf800) | (g&0x07e0) | (b&0x001f));
         }
         ret = write (fd, buf, 128*128*2);
+        close(fd);
     }else return fd;
     if (ret > 0) return ret;
     return -1;
